@@ -8,8 +8,8 @@ export default Ember.Controller.extend({
 
      var getFile = inputFile.files[0];
 
-     new PouchDB('lean').destroy().then(function () {
-       return new PouchDB('lean');
+     new PouchDB('squid').destroy().then(function () {
+       return new PouchDB('squid');
      }).then(function (db) {
        db.put({
          _id: 'image',
