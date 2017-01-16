@@ -2,9 +2,21 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-    testFunc() {
+
+    querySpace() {
+      navigator.webkitTemporaryStorage.queryUsageAndQuota(
+        function(usedBytes, grantedBytes) {
+          alert('Using: ', usedBytes/1000000, 'mb');
+          alert('Available: ', grantedBytes/1000000, 'mb');
+        },
+        function(e) { console.log('Error', e); }
+      );
+
+
+    },
+
+    stressTest() {
       var that = this;
-      alert('yes');
 
       var inputFile = document.querySelector('#inputFile');
       var imageMetaData = document.querySelector('#img_meta_data');
@@ -22,20 +34,22 @@ export default Ember.Controller.extend({
           'data': raw
         });
 
-        var pic = that.store.createRecord("picci", {
-            name: 'potatoes',
-            photos: test
-        });
 
-        pic.save();
+        for (var i = 0; i < 100; i++) {
+          var pic = that.store.createRecord("picci", {
+              name: 'potatoes',
+              photos: test
+          });
 
-        var img = document.createElement('img');
-        img.src = raw;
-        document.body.appendChild(img);
+          pic.save();
+        }
 
       }
 
-      reader.readAsDataURL(getFile);
+        reader.readAsDataURL(getFile);
+    },
+
+    testFunc() {
     },
 
     uploadPhoto() {
