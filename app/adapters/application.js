@@ -1,7 +1,7 @@
 import PouchDB from 'pouchdb';
 import { Adapter } from 'ember-pouch';
 
-var remote = new PouchDB('http://localhost:5984/calamari');
+var remote = new PouchDB('http://localhost:5984/marmalade');
 var db = new PouchDB('local_pouch');
 
 db.sync(remote, {

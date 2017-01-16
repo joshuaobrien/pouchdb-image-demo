@@ -2,17 +2,40 @@ import Ember from 'ember';
 
 export default Ember.Controller.extend({
   actions: {
-
-
-    testaroo() {
+    testFunc() {
+      var that = this;
       alert('yes');
 
-      var pic = this.store.createRecord("picci", {
-          name: 'potatos'
-      });
+      var inputFile = document.querySelector('#inputFile');
+      var imageMetaData = document.querySelector('#img_meta_data');
 
-      pic.save();
+      var getFile = inputFile.files[0];
 
+      var reader = new FileReader();
+
+      reader.onload = function(ayyy, potato) {
+        var raw = reader.result;
+
+        var test = Ember.Object.create({
+          'name': getFile.name,
+          'content_type': getFile.type,
+          'data': raw
+        });
+
+        var pic = that.store.createRecord("picci", {
+            name: 'potatoes',
+            photos: test
+        });
+
+        pic.save();
+
+        var img = document.createElement('img');
+        img.src = raw;
+        document.body.appendChild(img);
+
+      }
+
+      reader.readAsDataURL(getFile);
     },
 
     uploadPhoto() {
