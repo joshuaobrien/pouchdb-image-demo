@@ -4,6 +4,7 @@ export default Ember.Controller.extend({
   actions: {
 
     safariAlertTest() {
+      document.addEventListener("touchstart", function() {},false);
       alert('Safari');
     },
 
