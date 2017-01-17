@@ -3,11 +3,6 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
 
-    safariAlertTest() {
-      document.addEventListener("touchstart", function() {},false);
-      alert('Safari');
-    },
-
     querySpace() {
       navigator.webkitTemporaryStorage.queryUsageAndQuota(
         function(usedBytes, grantedBytes) {
@@ -16,7 +11,6 @@ export default Ember.Controller.extend({
         },
         function(e) { console.log('Error', e); }
       );
-
 
     },
 
