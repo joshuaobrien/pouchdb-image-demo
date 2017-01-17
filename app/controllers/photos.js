@@ -39,7 +39,7 @@ export default Ember.Controller.extend({
         });
 
 
-        for (var i = 0; i < 100; i++) {
+        for (var i = 0; i < 2; i++) {
           var pic = that.store.createRecord("picci", {
               name: 'potatoes',
               photos: test
