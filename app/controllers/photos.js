@@ -6,8 +6,8 @@ export default Ember.Controller.extend({
     querySpace() {
       navigator.webkitTemporaryStorage.queryUsageAndQuota(
         function(usedBytes, grantedBytes) {
-          alert('Using: ', usedBytes/1000000, 'mb');
-          alert('Available: ', grantedBytes/1000000, 'mb');
+          alert('Using: ' + usedBytes/1000000 + 'mb');
+          alert('Available: ' + grantedBytes/1000000 + 'mb');
         },
         function(e) { console.log('Error', e); }
       );
