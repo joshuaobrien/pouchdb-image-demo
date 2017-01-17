@@ -3,6 +3,10 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
 
+    safariAlertTest() {
+      alert('Safari');
+    },
+
     querySpace() {
       navigator.webkitTemporaryStorage.queryUsageAndQuota(
         function(usedBytes, grantedBytes) {
