@@ -3,6 +3,11 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   actions: {
 
+    adapterCheck() {
+        var pouch = new PouchDB('muh db');
+	alert(pouch.adapter);
+    },
+
     querySpace() {
       navigator.webkitTemporaryStorage.queryUsageAndQuota(
         function(usedBytes, grantedBytes) {
@@ -34,7 +39,7 @@ export default Ember.Controller.extend({
         });
 
 
-        for (var i = 0; i < 2; i++) {
+        for (var i = 0; i < 1; i++) {
           var pic = that.store.createRecord("picci", {
               name: 'potatoes',
               photos: test
